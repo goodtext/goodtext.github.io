@@ -1,0 +1,33 @@
+<html> 
+	<head> 
+		<meta http-equiv="Content-Language" content="en-us" /> 
+	    <meta http-equiv="Content-Language" content="ru" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta name="author" content="GoodText" /> 
+		<title>GoodText</title> 
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+	</head> 
+	<body>
+		<div class="logo center" id="data"></div>
+        <script type="text/javascript" src="datetime.js"> </script>
+		<div class="logo center"><strong>Welcome to the GoodText :)</strong></div>
+		<div class="aligner">
+			<div class="box textbox center">
+				<textarea id="bad_text" placeholder="Bad text"></textarea>
+			</div>
+			<div class="box divider center">
+				<button type="button" onclick="processing()"> GO ---> </button>
+			</div>
+			<div class="box textbox center">
+				<textarea id="good_text" placeholder="Good text"></textarea>
+			</div>
+		</div>
+		<script type="text/javascript">
+			function processing() { 
+				var bad_text = document.getElementById('bad_text').value;
+				var good_text = document.getElementById('good_text');
+				good_text.value = bad_text.replace(/[\n\r]/g, ' ');
+			}
+		</script>
+	</body> 
+</html>
