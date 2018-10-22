@@ -22,6 +22,8 @@
 				<textarea id="good_text" placeholder="Good text"></textarea>
 			</div>
 		</div>
+		<br />
+		<a target="_blank" href="https://github.com/goodtext/goodtext.github.io">About us</a>
 		<script type="text/javascript">
 			function remove_dashes(text) {  // удалить переносы слов в строках
 				var new_text = text;  // в new_text поместить text
@@ -35,15 +37,12 @@
 				}
 				return new_text; // вернуть крутой текст без переносов
 			}
-
 			function remove_linefeed(text) {
 				return text.replace(/[\n\r]/g, ' ');  // регулярками убрать переходы на следующую строку
 			}
-
 			function remove_spaces(text) {
 				return text.replace(/\s+/g,' ').trim();  // регулярками убрать лишние пробелы
 			}
-
 			function processing() { 
 				var bad_text = document.getElementById('bad_text').value;  // тут плохой текст
 				var good_text = document.getElementById('good_text');  // тут будет хороший текст
