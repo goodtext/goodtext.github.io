@@ -1,7 +1,5 @@
 # goodtext.github.io
 
-![Screenshot](goodtext.png)
-
 This site helps you transform bad text (copy) from PDF to good text for MS Word (or something else)
 
 If your text-line have a line-feed i.e. "\n" in the end of line, then site just delete "\n".
