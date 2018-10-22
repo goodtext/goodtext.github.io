@@ -37,12 +37,15 @@
 				}
 				return new_text; // вернуть крутой текст без переносов
 			}
+			
 			function remove_linefeed(text) {
 				return text.replace(/[\n\r]/g, ' ');  // регулярками убрать переходы на следующую строку
 			}
+			
 			function remove_spaces(text) {
 				return text.replace(/\s+/g,' ').trim();  // регулярками убрать лишние пробелы
 			}
+			
 			function processing() { 
 				var bad_text = document.getElementById('bad_text').value;  // тут плохой текст
 				var good_text = document.getElementById('good_text');  // тут будет хороший текст
