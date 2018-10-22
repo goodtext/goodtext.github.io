@@ -1,0 +1,56 @@
+<html> 
+	<head> 
+		<meta http-equiv="Content-Language" content="en-us" /> 
+		<meta http-equiv="Content-Language" content="ru" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta name="author" content="GoodText" /> 
+		<title>GoodText</title> 
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+	</head> 
+	<body>
+		<div class="logo center" id="data"></div>
+		<script type="text/javascript" src="datetime.js"> </script>
+		<div class="logo center"><strong>Welcome to the GoodText :)</strong></div>
+		<div class="aligner">
+			<div class="box textbox center">
+				<textarea id="bad_text" placeholder="Bad text"></textarea>
+			</div>
+			<div class="box divider center">
+				<button type="button" onclick="processing()"> GO ---> </button>
+			</div>
+			<div class="box textbox center">
+				<textarea id="good_text" placeholder="Good text"></textarea>
+			</div>
+		</div>
+		<br />
+		<a target="_blank" href="https://github.com/goodtext/goodtext.github.io">About us</a>
+		<script type="text/javascript">
+			function remove_dashes(text) {  // удалить переносы слов в строках
+				var new_text = text;  // в new_text поместить text
+				var target = '-\n';  // цель поиска
+				var pos = 0;  // первая позиция на нуле
+				while (true) {  // пока всё ок
+				  var foundPos = new_text.indexOf(target, pos);  // поиск позиции по таргету
+				  if (foundPos == -1) break;  // если всё крякнулось, то брейк
+				  new_text = new_text.substr(0, foundPos) + new_text.substr(foundPos + 2); // магия и переносы исчезли
+				  pos = foundPos + 1; // продолжить поиск со следующей позиции
+				}
+				return new_text; // вернуть крутой текст без переносов
+			}
+
+			function remove_linefeed(text) {
+				return text.replace(/[\n\r]/g, ' ');  // регулярками убрать переходы на следующую строку
+			}
+
+			function remove_spaces(text) {
+				return text.replace(/\s+/g,' ').trim();  // регулярками убрать лишние пробелы
+			}
+
+			function processing() { 
+				var bad_text = document.getElementById('bad_text').value;  // тут плохой текст
+				var good_text = document.getElementById('good_text');  // тут будет хороший текст
+				good_text.value = remove_spaces(remove_linefeed(remove_dashes(bad_text)));  // хороший текст
+			}
+		</script>
+	</body> 
+</html>
