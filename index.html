@@ -4,9 +4,10 @@
 		<meta http-equiv="Content-Language" content="ru" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 		<meta name="author" content="GoodText" /> 
-		<title>GoodText</title> 
+		<title>GoodText</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
-	</head> 
+	</head>
 	<body>
 		<div class="logo center" id="data"></div>
 		<script type="text/javascript" src="datetime.js"> </script>
@@ -25,31 +26,12 @@
 		<br />
 		<a target="_blank" href="https://github.com/goodtext/goodtext.github.io">About us</a>
 		<script type="text/javascript">
-			function remove_dashes(text) {  // удалить переносы слов в строках
-				var new_text = text;  // в new_text поместить text
-				var target = '-\n';  // цель поиска
-				var pos = 0;  // первая позиция на нуле
-				while (true) {  // пока всё ок
-				  var foundPos = new_text.indexOf(target, pos);  // поиск позиции по таргету
-				  if (foundPos == -1) break;  // если всё крякнулось, то брейк
-				  new_text = new_text.substr(0, foundPos) + new_text.substr(foundPos + 2); // магия и переносы исчезли
-				  pos = foundPos + 1; // продолжить поиск со следующей позиции
-				}
-				return new_text; // вернуть крутой текст без переносов
-			}
-
-			function remove_linefeed(text) {
-				return text.replace(/[\n\r]/g, ' ');  // регулярками убрать переходы на следующую строку
-			}
-
-			function remove_spaces(text) {
-				return text.replace(/\s+/g,' ').trim();  // регулярками убрать лишние пробелы
-			}
-
-			function processing() { 
-				var bad_text = document.getElementById('bad_text').value;  // тут плохой текст
-				var good_text = document.getElementById('good_text');  // тут будет хороший текст
-				good_text.value = remove_spaces(remove_linefeed(remove_dashes(bad_text)));  // хороший текст
+			function processing() {
+			  var text = $("#bad_text").val() // тут плохой текст
+				  .replace(/[_-]\n/g, '') // удалить переносы слов в строках
+				  .replace(/[\n\r]/g, ' ') // регулярками убрать переходы на следующую строку
+				  .replace(/\s+/g,' ').trim(); // регулярками убрать лишние пробелы
+			  $("#good_text").val(text);  // тут будет хороший текст
 			}
 		</script>
 	</body> 
