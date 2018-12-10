@@ -9,8 +9,6 @@
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
 	<body>
-		<div class="logo center" id="data"></div>
-		<script type="text/javascript" src="datetime.js"> </script>
 		<div class="logo center"><strong>Welcome to the GoodText :)</strong></div>
 		<div class="aligner">
 			<div class="box textbox center">
@@ -18,6 +16,7 @@
 			</div>
 			<div class="box divider center">
 				<button type="button" onclick="processing()"> GO ---> </button>
+				<button type="button" onclick="clear_text()"> Clear </button>
 			</div>
 			<div class="box textbox center">
 				<textarea id="good_text" placeholder="Good text"></textarea>
@@ -32,6 +31,10 @@
 				  .replace(/[\n\r]/g, ' ') // регулярками убрать переходы на следующую строку
 				  .replace(/\s+/g,' ').trim(); // регулярками убрать лишние пробелы
 			  $("#good_text").val(text);  // тут будет хороший текст
+			}
+			function clear_text() {
+			  $("#bad_text").val("");
+			  $("#good_text").val("");
 			}
 		</script>
 	</body> 
